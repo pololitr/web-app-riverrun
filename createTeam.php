@@ -83,10 +83,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="text" name="name" value=""><br/><br/>
 
     Počet vozidel<br/>
-    <input type="text" name="car_count" value=""><br/><br/>
+    <select name="car_count">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select><br/><br/>
 
     Počet běžců<br/>
-    <input type="text" name="runners_count" value=""><br/><br/>
+    <select name="runners_count">
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select><br/><br/>
 
     <input type="submit" value="Vytvoř tým"> or <a href="index.php">Zrušit</a>
 

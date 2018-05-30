@@ -5,9 +5,9 @@ session_start();
 require 'db.php';
 	
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		
-		$email = $_POST['email'];
-		$password = $_POST['password'];
+
+    $email = htmlspecialchars(trim($_POST['email']));
+    $password = htmlspecialchars(trim($_POST['password']));
 	
 		# zajimavost: mysql porovnani retezcu je case insensitive, pokud dame select na NECO@DOMENA.COM, najde to i zaznam neco@domena.com
 		# viz http://dev.mysql.com/doc/refman/5.0/en/case-sensitivity.html
@@ -54,10 +54,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<form action="" method="POST">
 	  
 		Your Email<br/>
-		<input type="text" name="email" value=""><br/><br/>
+		<input type="text" name="email" value="" required><br/><br/>
 	  
 		Password<br/>
-		<input type="password" name="password" value=""><br/><br/>
+		<input type="password" name="password" value="" required><br/><br/>
 							
 		<input type="submit" value="Sign in">
 		
@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		
 	<br/>
 
-	<a href="signup.php">Don't have an account yet? Sign up!</a>
+	<a href="signup.php">Don't have an account yet? Sign up!</a><br/>
     <a href="admin_required.php">Manage</a>
 
 </body>

@@ -53,7 +53,7 @@ Aktuální počet běžců v týmu: <?= $count ?>
         <th>Identifikační číslo</th>
         <th>Jméno</th>
         <th>Příjmení</th>
-        <th>Čas na kilometr</th>
+<!--        <th>Čas na kilometr</th>-->
         <th>Tým</th>
         <th></th>
 
@@ -70,7 +70,7 @@ Aktuální počet běžců v týmu: <?= $count ?>
             <td><?= $row['id_runner'] ?></td>
             <td class="right"><?= $row['firstname'] ?></td>
             <td><?= $row['lastname'] ?></td>
-            <td><?= $row['avg_phase'] ?></td>
+<!--            <td>--><?//= $row['avg_phase'] ?><!--</td>-->
             <td><?= $row['name'] ?></td>
 
             <td class="center" nowrap>

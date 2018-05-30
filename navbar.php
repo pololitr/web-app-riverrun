@@ -10,7 +10,6 @@ require 'db.php';
 $stmt = $db->prepare("select state, description from current_state join state on current_state.id_cs = state.id_stat");
 $stmt->execute();
 $state = $stmt->fetchAll()[0];
-var_dump($state);
 
 $current_state_name = $state["state"];
 //$current_state_desc = $state["description"];
@@ -22,7 +21,7 @@ $current_state_name = $state["state"];
         </div>
         <ul class="nav navbar-nav">
             <li><a href="index.php">Domů</a></li>
-            <li><a href="myteam.php.php">Můj tým</a></li>
+            <li><a href="myteam.php">Můj tým</a></li>
             <li><a href="runnerSection.php">Sekce</a></li>
 
         </ul>

@@ -6,13 +6,50 @@ require 'db.php';
 	
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
-	$email = $_POST['email'];
-    $password = $_POST['password'];
-    $email = $_POST['email'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $avg_phase = $_POST['avg_phase'];
-	
+	//$email = $_POST['email'];
+    //$password = $_POST['password'];
+    //$email = $_POST['email'];
+    //$firstname = $_POST['firstname'];
+    //$lastname = $_POST['lastname'];
+    //$avg_phase = $_POST['avg_phase'];
+
+
+    $username = htmlspecialchars(trim($_POST['email']));
+    $password = htmlspecialchars(trim($_POST['password']));
+    $password_check = htmlspecialchars(trim($_POST['password_check']));
+    $firstname = htmlspecialchars(trim($_POST['firstname']));
+    $lastname = htmlspecialchars(trim($_POST['lastname']));
+
+    # dalsi moznosti je vynutit bcrypt: PASSWORD_BCRYPT
+    $hashed = password_hash($password, PASSWORD_DEFAULT);
+    $errors = array();
+    if (isset($_POST['email'])) {
+        if (!ctype_alnum($_POST['email'])) {
+            $errors[] = 'Přezdivka může obsahovat jen písmena a číslice.';
+        }
+        if (strlen($_POST['email']) > 30) {
+            $errors[] = 'Přezdivka nemůže být delší než 30 znaků.';
+        }
+    } else {
+        $errors[] = 'Email nesmí být prázdný.';
+    }
+    if (isset($_POST['password'])) {
+        if ($_POST['password'] != $_POST['password_check']) {
+            $errors[] = 'Hesla se neshodují';
+        }
+        if (strlen($_POST['password_check']) < 8) {
+            $errors[] = 'heslo je moc krátké';
+        }
+        if (empty($_POST['password'])) {
+            $errors[] = 'Heslo nesmí být prázdné';
+        }
+    }
+    if (isset($_POST['firstname'])&&isset($_POST['firstname'])) {
+        if (empty($_POST['firstname']) or empty($_POST['lastname'])) {
+            $errors[] = 'Jméno a příjemní nesmí být prázdené';
+        }
+    }
+
 	# TODO PRO STUDENTY osetrit vstupy, email a heslo jsou povinne, atd.
 	# TODO PRO STUDENTY jde se prihlasit prazdnym heslem, jen prototyp, pouzit filtry
 
@@ -34,8 +71,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$hashed = password_hash($password, PASSWORD_DEFAULT);
 	
 	#vlozime usera do databaze
-	$stmt = $db->prepare("INSERT INTO runner(email, password, firstname, lastname, avg_phase,captain ) VALUES (?, ?, ?, ?, ?, ?)");
-	$stmt->execute(array($email, $hashed,$firstname, $lastname,$avg_phase ,1));
+	$stmt = $db->prepare("INSERT INTO runner(email, password, firstname, lastname,captain ) VALUES (?, ?, ?, ?, ?)");
+	$stmt->execute(array($email, $hashed,$firstname, $lastname ,1));
 	
 	#ted je uzivatel ulozen, bud muzeme vzit id posledniho zaznamu pres last insert id (co kdyz se to potka s vice requesty = nebezpecne), nebo nacist uzivatele podle mailove adresy (ok, bezpecne)
 	
@@ -70,22 +107,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<form action="" method="POST">
 	  
 			Váš email<br/>
-			<input type="text" name="email" value=""><br/><br/>
+			<input type="text" name="email" value="" required><br/><br/>
 	  
 			Heslo<br/>
-			<input type="password" name="password" value=""><br/><br/>
+			<input type="password" name="password" value="" required><br/><br/>
+
+            Heslo Znovu<br/>
+            <input type="password" name="password_check" value="" required><br/><br/>
 
             Jmnéno<br/>
-            <input type="text" name="firstname" value=""><br/><br/>
+            <input type="text" name="firstname" value="" required><br/><br/>
 
             Příjmení<br/>
-            <input type="text" name="lastname" value=""><br/><br/>
+            <input type="text" name="lastname" value="" required><br/><br/>
 
-            Minut na kilometr<br/>
-            <input type="text" name="avg_phase" value=""><br/><br/>
-						
-	
-			<input type="submit" value="Create Account"> or <a href="/index.php">Cancel</a>
+			<input type="submit" value="Create Account"> or <a href="signin.php">Cancel</a>
 		
 		</form>
 	

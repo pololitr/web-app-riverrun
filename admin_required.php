@@ -65,5 +65,6 @@ Vyberte status závodu
     </select>
     <input type="submit" value="Přiřaď" class="login loginmodal-submit">
 </form>
+<h3><a href='signout.php'>Odhlásit</a></h3>
 </body>
 </html>

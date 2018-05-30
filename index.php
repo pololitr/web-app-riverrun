@@ -15,6 +15,11 @@ require 'user_required.php';
 // You can store as much data as you like within in sessions. All sessions are stored on the server. The only limits you can reach is the maximum memory a script can consume at one time, which by default is 128MB.
 //http://stackoverflow.com/questions/217420/ideal-php-session-size
 # offset pro strankovani
+$stmt_b = $db->prepare("SELECT id_cs FROM current_state");
+$stmt_b->execute();
+$current_status = $stmt_b->fetchAll()[0];
+
+
 ?>
 <!DOCTYPE html>
 
@@ -35,6 +40,10 @@ require 'user_required.php';
         </div>
     </div>
 </div>
+<?php
+if ($current_status["id_cs"] == 4) { ?>
+    <h2><a href='results.php'>Výsledky</a></h2>
+<?php } ?>
 
 <div class="container">
     <h3><a href='myteam.php'>Muj team</a></h3>
