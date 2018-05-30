@@ -18,17 +18,16 @@ $stmt->execute();
 $clients = $stmt->fetchAll();
 
 
-
 ?>
 <!DOCTYPE html>
 
 <html>
 
 <head>
-	<meta charset="utf-8" />
-	<title>Kapitánova sekce | VltavaRun</title>
+    <meta charset="utf-8"/>
+    <title>Kapitánova sekce | VltavaRun</title>
 
-	<link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 
 </head>
 
@@ -36,59 +35,62 @@ $clients = $stmt->fetchAll();
 
 <!--	--><?php //include 'navbar.php' ?>
 
-	<h1>Seznam tymu</h1>
+<h1>Seznam tymu</h1>
 
-	celkovy pocet tymu: <?= $count ?>
+celkovy pocet tymu: <?= $count ?>
 
-	<br/><br/>
+<br/><br/>
 
 <!--	<a href="new.php">New Good</a>-->
 
-	<br/><br/>
+<br/><br/>
 
-	<table>
+<table>
 
-		<tr>
+    <tr>
 
-			<th></th>
-			<th>Identifikační číslo týmu</th>
-			<th>Nazev týmu</th>
-			<th>ID kapitána</th>
-            <th>Počet vozidel</th>
-            <th>Počet běžců</th>
-			<th></th>
+        <th></th>
+        <th>Identifikační číslo týmu</th>
+        <th>Nazev týmu</th>
+        <th>ID kapitána</th>
+        <th>Počet vozidel</th>
+        <th>Počet běžců</th>
+        <th></th>
 
 
-		</tr>
+    </tr>
 
-		<?php foreach($clients as $row) { ?>
+    <?php foreach ($clients as $row) { ?>
 
-			<tr>
-				<td class="center">
-<!--					<a href='buy.php?id=--><?//= $row['id'] ?><!--'>Buy</a>-->
-				</td>
+        <tr>
+            <td class="center">
+                <!--					<a href='buy.php?id=--><? //= $row['id'] ?><!--'>Buy</a>-->
+            </td>
 
-				<td><?= $row['id_team'] ?></td>
-				<td class="right"><?= $row['name'] ?></td>
-				<td><?= $row['captain_id'] ?></td>
-                <td><?= $row['car_count'] ?></td>
-                <td><?= $row['runners_count'] ?></td>
+            <td><?= $row['id_team'] ?></td>
+            <td class="right"><?= $row['name'] ?></td>
+            <td><?= $row['captain_id'] ?></td>
+            <td><?= $row['car_count'] ?></td>
+            <td><?= $row['runners_count'] ?></td>
 
-				<td class="center" nowrap>
-<!--					<a href='update_optimistic.php?id=--><?//= $row['id'] ?><!--'>Edit (optimistic lock)</a><br>-->
-<!--					<a href='update_pessimistic.php?id=--><?//= $row['id'] ?><!--'>Edit (pessimistic lock)</a><br>-->
-<!--					<a href='delete.php?id=--><?//= $row['id'] ?><!--'>Delete</a>-->
-				</td>
+            <td class="center" nowrap>
+                <!--					<a href='update_optimistic.php?id=-->
+                <? //= $row['id'] ?><!--'>Edit (optimistic lock)</a><br>-->
+                <!--					<a href='update_pessimistic.php?id=-->
+                <? //= $row['id'] ?><!--'>Edit (pessimistic lock)</a><br>-->
+                <!--					<a href='delete.php?id=--><? //= $row['id'] ?><!--'>Delete</a>-->
+            </td>
 
-			</tr>
+        </tr>
 
-			<?php } ?>
+    <?php } ?>
 
-		</table>
+</table>
 
 <div class="container">
     <h3><a href='index.php'>Menu</a></h3>
 </div>
-		</body>
+<?php include 'footer.php' ?>
+</body>
 
-		</html>
+</html>

@@ -101,7 +101,7 @@ celkovy pocet useku: <?= $count ?>
 
 
 <br/>
-
+<?php include 'footer.php' ?>
 </body>
 
 </html>

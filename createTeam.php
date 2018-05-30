@@ -69,6 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="utf-8"/>
     <title>Kapitánská sekce | Vltava Run 201x</title>
     <!--	<link rel="stylesheet" type="text/css" href="styles.css">-->
+    <?php include 'navbar.php' ?>
 </head>
 
 <body>
@@ -108,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="container">
     <h3><a href='index.php'>Menu</a></h3>
 </div>
-
+<?php include 'footer.php' ?>
 </body>
 
 </html>

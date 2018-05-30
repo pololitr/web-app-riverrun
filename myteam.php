@@ -43,6 +43,7 @@ if ($current_status["id_cs"] != 1) {
     <meta charset="utf-8"/>
     <title>Kapitánova sekce | VltavaRun</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <?php include 'navbar.php' ?>
 </head>
 <body>
 <!--	--><?php //include 'navbar.php' ?>
@@ -87,7 +88,7 @@ if (($count_set - $count) > 0) { ?>
 <div class="container">
     <h3><a href='index.php'>Menu</a></h3>
 </div>
-
+<?php include 'footer.php' ?>
 </body>
 
 </html>

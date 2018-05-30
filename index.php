@@ -27,16 +27,15 @@ $current_status = $stmt_b->fetchAll()[0];
 
 <head>
     <meta charset="utf-8"/>
-    <title>Vltava Run</title>
+    <title>Kapitánva sekce | River Run</title>
     <?php include 'navbar.php' ?>
 </head>
 <body>
-<?php include 'header.php' ?>
 <div class="container">
     <div class="title text-center">
         <div class="centered">
-            <h1>Main landing page</h1>
-            <p>Výchozí bod pro kapitána</p>
+            <h1>Rozcestí kapitána</h1>
+            <p>Výchozí bod pro řízení týmu</p>
         </div>
     </div>
 </div>
@@ -46,11 +45,11 @@ if ($current_status["id_cs"] == 4) { ?>
 <?php } ?>
 
 <div class="container">
-    <h3><a href='myteam.php'>Muj team</a></h3>
-    <h3><a href='teams.php'>Vsechny teamy</a></h3>
-    <h3><a href='runners.php'>Vsichni bezci</a></h3>
-    <h3><a href='sections.php'>Useky</a></h3>
-    <h3><a href='runnerSection.php'>Useky-bezci-team</a></h3>
+    <h3><a href='myteam.php'>Můj tým</a></h3>
+    <h3><a href='teams.php'>Všechny týmy</a></h3>
+    <h3><a href='runners.php'>Všichni běžci</a></h3>
+    <h3><a href='sections.php'>Úseky</a></h3>
+    <h3><a href='runnerSection.php'>Správa úseků týmu</a></h3>
     <br>
     <h3><a href='signout.php'>Odhlásit</a></h3>
 </div>

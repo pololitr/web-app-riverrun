@@ -22,7 +22,7 @@ $current_state_name = $state["state"];
         <ul class="nav navbar-nav">
             <li><a href="index.php">Domů</a></li>
             <li><a href="myteam.php">Můj tým</a></li>
-            <li><a href="runnerSection.php">Sekce</a></li>
+            <li><a href="runnerSection.php">Úseky</a></li>
 
         </ul>
         <ul class="nav navbar-nav">

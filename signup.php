@@ -100,9 +100,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 	
-		<h1>PHP Shopping App</h1>
+		<h1>River Run 2018 Kapitánská sekce</h1>
 
-		<h2>New Signup</h2>
+		<h2>Nový kapitánský účet</h2>
 	
 		<form action="" method="POST">
 	  
@@ -121,7 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             Příjmení<br/>
             <input type="text" name="lastname" value="" required><br/><br/>
 
-			<input type="submit" value="Create Account"> or <a href="signin.php">Cancel</a>
+			<input type="submit" value="Vytvořit účet"> or <a href="signin.php">Zpět k přihlášení</a>
 		
 		</form>
 	

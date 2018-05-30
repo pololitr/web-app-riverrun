@@ -58,8 +58,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="utf-8"/>
-    <title>Kapitánova sekce | VltavaRun</title>
-
+    <title>Kapitánova sekce | RiverRun</title>
+    <?php include 'navbar.php' ?>
     <link rel="stylesheet" type="text/css" href="styles.css">
 
 </head>
@@ -145,7 +145,7 @@ Celkový počet úseků: <?= $count ?>
 <div class="container">
     <h3><a href='index.php'>Menu</a></h3>
 </div>
-
+<?php include 'footer.php' ?>
 </body>
 
 </html>

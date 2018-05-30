@@ -15,11 +15,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$stmt = $db->prepare("SELECT * FROM runner WHERE email = ? LIMIT 1"); //limit 1 jen jako vykonnostni optimalizace, 2 stejne maily se v db nepotkaji
 		$stmt->execute(array($email));
 		$existing_user = @$stmt->fetchAll()[0];
+
+		$is_captain = $existing_user[4];
 //		var_dump($existing_user);
 //		echo $existing_user[7];
 //		die();
 	
-		if(password_verify($password, $existing_user["password"])){
+		if(password_verify($password, $existing_user["password"])&&$is_captain ==1){
 	
 			$_SESSION['id_runner'] = $existing_user["id_runner"];
 		
@@ -47,27 +49,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 	
-	<h1>PHP Shopping App</h1>
+	<h1>River Run 2018 Kapitánská sekce</h1>
 
-	<h2>Sign in</h2>
+	<h2>Přihlaste se</h2>
 
 	<form action="" method="POST">
 	  
-		Your Email<br/>
+		Váš Email<br/>
 		<input type="text" name="email" value="" required><br/><br/>
 	  
-		Password<br/>
+		Vaše Heslo<br/>
 		<input type="password" name="password" value="" required><br/><br/>
 							
-		<input type="submit" value="Sign in">
+		<input type="submit" value="Přihlásit">
 		
 	</form>
 		
 	<br/>
 
-	<a href="signup.php">Don't have an account yet? Sign up!</a><br/>
+	<a href="signup.php">Vytvořit účet</a><br/>
     <a href="admin_required.php">Manage</a>
-
+    <?php include 'footer.php' ?>
 </body>
 
 </html>
