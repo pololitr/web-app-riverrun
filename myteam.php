@@ -7,6 +7,7 @@
  */
 require 'db.php';
 require 'user_required.php';
+
 $current_user_id = $current_user["id_runner"];
 $current_user_team = $current_user["team"];
 
@@ -33,14 +34,15 @@ $clients = $stmt->fetchAll();
 	<title>Kapitánova sekce | VltavaRun</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-
 <body>
 <!--	--><?php //include 'navbar.php' ?>
 	<h1>Seznam bežců</h1>
 	Aktuální počet běžců v týmu: <?= $count ?>
 	<br/><br/>
 
-<!--	<a href="new.php">New Good</a>-->
+<div class="container">
+    <h3><a href='addmemeber.php'>Nový člen týmu</a></h3>
+</div>
 	<br/><br/>
 	<table>
 		<tr>
@@ -60,11 +62,8 @@ $clients = $stmt->fetchAll();
 				<td><?= $row['FIRSTNAME'] ?></td>
 				<td><?= $row['LASTNAME'] ?></td>
                 <td><?= $row['AVG_PHASE'] ?></td>
-				<td class="center" nowrap>
-<!--					<a href='update_optimistic.php?id=--><?//= $row['id'] ?><!--'>Edit (optimistic lock)</a><br>-->
-<!--					<a href='update_pessimistic.php?id=--><?//= $row['id'] ?><!--'>Edit (pessimistic lock)</a><br>-->
-<!--					<a href='delete.php?id=--><?//= $row['id'] ?><!--'>Delete</a>-->
-				</td>
+                <td><a href='delete.php?id_runner=<?= $row['ID_RUNNER'] ?>'><button type="button">SMAZAT</button></a></td>
+
 
 			</tr>
 

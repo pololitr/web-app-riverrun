@@ -10,14 +10,13 @@ require 'user_required.php';
 $current_user_id = $current_user["id_runner"];
 $current_user_team = $current_user["team"];
 
-if ($current_user_team != NULL){
+if ($current_user_team != NULL) {
     header("Location: myteam.php");
     exit();
-}
-else
+} else
 
 
-require 'db.php';
+    require 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //TODO name musi byt uniqe
@@ -29,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //vytvor team
     $stmt = $db->prepare("INSERT INTO team(NAME,captain_id, car_count, runners_count) VALUES (?, ?, ?, ?)");
-    $stmt->execute(array($team_name,$captain_id,$c_team_cars,$c_team_members ));
+    $stmt->execute(array($team_name, $captain_id, $c_team_cars, $c_team_members));
 
     //ziskej id noveho tymu
     $stmt_b = $db->prepare("SELECT id_team from team where team.name = ?");
@@ -49,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     var_dump($team_id_from_db);
 
     //Vytvor tymovy zaznam v sekcich
-    foreach($sections_ids as $row) {
+    foreach ($sections_ids as $row) {
         $row_b = $row[0];
         //var_dump($row_b);
         $stmt_d = $db->prepare("INSERT INTO runner_section(id_s, id_t, id_r) VALUES (?, ?, ?)");
@@ -67,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>Kapitánská sekce | Vltava Run 201x</title>
     <!--	<link rel="stylesheet" type="text/css" href="styles.css">-->
 </head>

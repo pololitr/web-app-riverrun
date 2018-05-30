@@ -3,11 +3,20 @@
 require 'db.php';
 require 'user_required.php';
 
-$stmt = $db->prepare("UPDATE runner_section set id_r = NULL where id_rs = ?");
-$stmt->execute(array($_GET['id_rs']));
+$current_user_id = $current_user["id_runner"];
+$current_user_team = $current_user["team"];
 
+if($current_user_id = $_GET['id_runner']){
+    header('Location: myteam.php');
+}
 
-header('Location: runnerSection.php');
+$stmt = $db->prepare("UPDATE runner set team = NULL where id_runner = ? and team = $current_user_team and id_runner != $current_user_id");
+$stmt->execute(array($_GET['id_runner']));
+
+$stmt_b = $db->prepare("DELETE FROM runner WHERE id_runner=?");
+$stmt_b->execute(array($_GET['id_runner']));
+
+header('Location: myteam.php');
 
 ?>
 

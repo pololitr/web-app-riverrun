@@ -66,6 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<br/>
 
 	<a href="signup.php">Don't have an account yet? Sign up!</a>
+    <a href="admin_required.php">Manage</a>
 
 </body>
 

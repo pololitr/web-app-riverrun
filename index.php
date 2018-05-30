@@ -23,6 +23,7 @@ require 'user_required.php';
 <head>
     <meta charset="utf-8"/>
     <title>Vltava Run</title>
+    <?php include 'navbar.php' ?>
 </head>
 <body>
 <?php include 'header.php' ?>
