@@ -48,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Vltava Run</title>
 </head>
 <body>
+<div class="container">
 <p>Současný status závodu je <?= "<h1>",$current_status["state"],"</h1><br>",$current_status["description"]?></p>
 </br>
 Vyberte status závodu
@@ -66,5 +67,6 @@ Vyberte status závodu
     <input type="submit" value="Přiřaď" class="login loginmodal-submit">
 </form>
 <h3><a href='signout.php'>Odhlásit</a></h3>
+    </div>
 </body>
 </html>

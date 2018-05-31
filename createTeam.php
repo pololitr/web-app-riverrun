@@ -73,6 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+<div class="container">
 
 <h1>Vytvoření nového týmu</h1>
 
@@ -105,8 +106,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="submit" value="Vytvoř tým"> or <a href="index.php">Zrušit</a>
 
 </form>
-
-<div class="container">
     <h3><a href='index.php'>Menu</a></h3>
 </div>
 <?php include 'footer.php' ?>

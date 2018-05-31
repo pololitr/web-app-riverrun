@@ -18,90 +18,50 @@ $stmt->execute();
 $clients = $stmt->fetchAll();
 
 
-
 ?>
 <!DOCTYPE html>
-
 <html>
-
 <head>
-    <meta charset="utf-8" />
-    <title>Kapitánova sekce | VltavaRun</title>
-
-    <link rel="stylesheet" type="text/css" href="styles.css">
-
+    <meta charset="utf-8"/>
+    <title>Kapitánova sekce | River Run</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <?php include 'navbar.php' ?>
 </head>
-
 <body>
-
-<!--	--><?php //include 'navbar.php' ?>
-
-<h1>Seznam useku</h1>
-
-celkovy pocet useku: <?= $count ?>
-
-<br/><br/>
-
-<!--	<a href="new.php">New Good</a>-->
-
-<br/><br/>
-
-<table>
-
-    <tr>
-
-        <th></th>
-        <th>Identifikační číslo useku</th>
-        <th>Start</th>
-        <th>Cíl</th>
-        <th>Délka(km)</th>
-        <th>Náročnost</th>
-        <th></th>
-
-
-    </tr>
-
-    <?php foreach($clients as $row) { ?>
-
-        <tr>
-            <td class="center">
-                <!--					<a href='buy.php?id=--><?//= $row['id'] ?><!--'>Buy</a>-->
-            </td>
-
-            <td><?= $row['id_section'] ?></td>
-            <td class="right"><?= $row['start'] ?></td>
-            <td><?= $row['finish'] ?></td>
-            <td><?= $row['kilometers'] ?></td>
-            <td><?= $row['difficulty'] ?></td>
-
-            <td class="center" nowrap>
-                <!--					<a href='update_optimistic.php?id=--><?//= $row['id'] ?><!--'>Edit (optimistic lock)</a><br>-->
-                <!--					<a href='update_pessimistic.php?id=--><?//= $row['id'] ?><!--'>Edit (pessimistic lock)</a><br>-->
-                <!--					<a href='delete.php?id=--><?//= $row['id'] ?><!--'>Delete</a>-->
-            </td>
-
-        </tr>
-
-    <?php } ?>
-
-</table>
 <div class="container">
+    <h1>Seznam useku</h1>
+    celkovy pocet useku: <?= $count ?>
+    <br/><br/>
+    <br/><br/>
+    <div class="table">
+        <table class="table table-hover">
+            <tr>
+                <th></th>
+                <th>Identifikační číslo useku</th>
+                <th>Start</th>
+                <th>Cíl</th>
+                <th>Délka(km)</th>
+                <th>Náročnost</th>
+                <th></th>
+            </tr>
+            <?php foreach ($clients as $row) { ?>
+                <tr>
+                    <td class="center">
+                    </td>
+                    <td><?= $row['id_section'] ?></td>
+                    <td class="right"><?= $row['start'] ?></td>
+                    <td><?= $row['finish'] ?></td>
+                    <td><?= $row['kilometers'] ?></td>
+                    <td><?= $row['difficulty'] ?></td>
+                </tr>
+            <?php } ?>
+        </table>
+    </div>
     <h3><a href='index.php'>Menu</a></h3>
+    <br/>
+    <br/>
+    <?php include 'footer.php' ?>
 </div>
-
-<br/>
-
-<!--<div class="pagination">-->
-<!--    --><?php //for($i=1; $i<=ceil($count/10); $i++) { ?>
-<!---->
-<!--        <a class="--><?//= $offset/10+1==$i ? "active" : ""  ?><!--" href="index.php?offset=--><?//= ($i-1)*10 ?><!--">--><?//= $i ?><!--</a>-->
-<!---->
-<!--    --><?php //} ?>
-<!--</div>-->
-
-
-<br/>
-<?php include 'footer.php' ?>
 </body>
 
 </html>

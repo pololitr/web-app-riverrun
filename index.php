@@ -24,27 +24,21 @@ $current_status = $stmt_b->fetchAll()[0];
 <!DOCTYPE html>
 
 <html>
-
 <head>
     <meta charset="utf-8"/>
     <title>Kapitánva sekce | River Run</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <?php include 'navbar.php' ?>
 </head>
 <body>
-<div class="container">
-    <div class="title text-center">
-        <div class="centered">
-            <h1>Rozcestí kapitána</h1>
-            <p>Výchozí bod pro řízení týmu</p>
-        </div>
-    </div>
-</div>
-<?php
-if ($current_status["id_cs"] == 4) { ?>
-    <h2><a href='results.php'>Výsledky</a></h2>
-<?php } ?>
+<div class="container text-center">
+    <h1>Rozcestí kapitána</h1>
+    <p>Výchozí bod pro řízení týmu</p>
 
-<div class="container">
+    <?php
+    if ($current_status["id_cs"] == 4) { ?>
+        <h3><a href='results.php'>Výsledky</a></h3>
+    <?php } ?>
     <h3><a href='myteam.php'>Můj tým</a></h3>
     <h3><a href='teams.php'>Všechny týmy</a></h3>
     <h3><a href='runners.php'>Všichni běžci</a></h3>
@@ -53,6 +47,8 @@ if ($current_status["id_cs"] == 4) { ?>
     <br>
     <h3><a href='signout.php'>Odhlásit</a></h3>
 </div>
+
 <?php include 'footer.php' ?>
+</div>
 </body>
 </html>

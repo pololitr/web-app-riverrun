@@ -14,19 +14,25 @@ $state = $stmt->fetchAll()[0];
 $current_state_name = $state["state"];
 //$current_state_desc = $state["description"];
 ?>
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">River Run 2018</a>
+            <a class="navbar-brand" href="index.php">River Run 2018</a>
         </div>
         <ul class="nav navbar-nav">
             <li><a href="index.php">Domů</a></li>
             <li><a href="myteam.php">Můj tým</a></li>
             <li><a href="runnerSection.php">Úseky</a></li>
-
-        </ul>
-        <ul class="nav navbar-nav">
-            <li><h2>Současný stav je: <?=$current_state_name?><h2></li>
+            <li id="current-status"><a href="">Současný stav je: <?=$current_state_name?></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Přihlášen jako <?= $current_user['firstname']," ", $current_user['lastname'] ?> <span class="caret"></span></a>

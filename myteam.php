@@ -42,10 +42,12 @@ if ($current_status["id_cs"] != 1) {
 <head>
     <meta charset="utf-8"/>
     <title>Kapitánova sekce | VltavaRun</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <?php include 'navbar.php' ?>
 </head>
 <body>
+<div class="container">
+
 <!--	--><?php //include 'navbar.php' ?>
 <h1>Seznam bežců</h1>
 Aktuální počet běžců v týmu: <?= $count ?><br>
@@ -57,16 +59,18 @@ if (($count_set - $count) > 0) { ?>
 <?php } ?>
 <br/>
 <?php if ($count < $count_set) { ?>
-    <div class="container">
+
         <h3><a href='addmemeber.php'>Nový člen týmu</a></h3>
-    </div>
+
 <?php } ?>
 <br/>
-<table>
+    <div class="table table-striped">
+        <table class="table">
     <tr>
         <th>Identifikační číslo</th>
         <th>Jméno</th>
         <th>Příjmení</th>
+        <th>Odeber člena</th>
         <!--            <th>Čas na kilometr</th>-->
     </tr>
 
@@ -83,9 +87,9 @@ if (($count_set - $count) > 0) { ?>
     <?php } ?>
 
 </table>
+</div>
 
 
-<div class="container">
     <h3><a href='index.php'>Menu</a></h3>
 </div>
 <?php include 'footer.php' ?>

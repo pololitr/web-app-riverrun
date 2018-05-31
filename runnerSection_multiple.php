@@ -64,55 +64,60 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-
-<!--	--><?php //include 'navbar.php' ?>
-
-<h1>Rozpis přidělených úseků</h1>
-<!--Celkový počet úseků: --><?//= $count ?>
-<br/>
-<h2>Přidělené úsely</h2>
-<table>
-    <tr>
-        <th>ID sekce</th>
-        <th>Start</th>
-        <th>Finish</th>
-        <th>ID běžce</th>
-        <th>Jméno</th>
-        <th>Příjmení</th>
-        <th>Čas</th>
-
-    </tr>
-    <?php foreach ($clients as $row) { ?>
-        <tr>
-            <td><?= $row['id_section'] ?></td>
-            <td><?= $row['start'] ?></td>
-            <td><?= $row['finish'] ?></td>
-            <td><?= $row['id_runner'] ?></td>
-            <td><?= $row['firstname'] ?></td>
-            <td><?= $row['lastname'] ?></td>
-            <td><?= $row['time'] ?></td>
-        </tr>
-    <?php } ?>
-</table>
-<br/><br/>
-<?php if ($current_status["id_cs"] == 3) { ?>
-<form action="" method="POST">
-    Vyberte sekci<br>
-    <select name='section_picker_time' class='selectpicker'>
-        <?php foreach ($clients as $ts) { ?>
-            <option value="<?= $ts['id_section'] ?>"><?= "ID: ", $ts['id_section'], " ", $ts['start'], " -> ", $ts['finish'] ?>
-            </option>
-        <?php } ?>
-    </select><br>
-    Zadej čas (HH:MM)<br>
-    <input type="time" name="time" value=""><br>
-    <input type="submit" value="Zadej čas" class="login loginmodal-submit">
-</form>
-<?php } ?>
 <div class="container">
+    <!--	--><?php //include 'navbar.php' ?>
+
+    <h1>Rozpis přidělených úseků</h1>
+
+    <?php if ($current_status["id_cs"] == 3) { ?>
+        <form action="" method="POST">
+            <h2>Vyberte sekci</h2>
+            <select name='section_picker_time' class='selectpicker'>
+                <?php foreach ($clients as $ts) { ?>
+                    <option value="<?= $ts['id_section'] ?>"><?= "ID: ", $ts['id_section'], " ", $ts['start'], " -> ", $ts['finish'] ?>
+                    </option>
+                <?php } ?>
+            </select><br>
+            Zadej čas (HH:MM)<br>
+            <input type="time" name="time" value=""><br>
+            <input type="submit" value="Zadej čas" class="login loginmodal-submit">
+        </form>
+    <?php } ?>
+
+    <br/>
+    <h2>Přidělené úsely</h2>
+    <div class="table">
+        <table class="table table-hover">
+            <tr>
+                <th>ID sekce</th>
+                <th>Start</th>
+                <th>Finish</th>
+                <th>ID běžce</th>
+                <th>Jméno</th>
+                <th>Příjmení</th>
+                <th>Čas</th>
+
+            </tr>
+            <?php foreach ($clients as $row) { ?>
+                <tr>
+                    <td><?= $row['id_section'] ?></td>
+                    <td><?= $row['start'] ?></td>
+                    <td><?= $row['finish'] ?></td>
+                    <td><?= $row['id_runner'] ?></td>
+                    <td><?= $row['firstname'] ?></td>
+                    <td><?= $row['lastname'] ?></td>
+                    <td><?= $row['time'] ?></td>
+                </tr>
+            <?php } ?>
+        </table>
+    </div>
+    <br/><br/>
+
+
     <h3><a href='index.php'>Menu</a></h3>
+
+    <?php include 'footer.php' ?>
 </div>
-<?php include 'footer.php' ?>
 </body>
 
 </html>

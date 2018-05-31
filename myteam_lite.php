@@ -31,38 +31,37 @@ $clients = $stmt->fetchAll();
     <?php include 'navbar.php' ?>
 </head>
 <body>
-<!--	--><?php //include 'navbar.php' ?>
-<h1>Seznam bežců</h1>
-Aktuální počet běžců v týmu: <?= $count ?>
-<table>
-    <tr>
-        <th></th>
-        <th>Identifikační číslo</th>
-        <th>Jméno</th>
-        <th>Příjmení</th>
-<!--        <th>Čas na kilometr</th>-->
-    </tr>
-
-    <?php foreach ($clients as $row) { ?>
-
-        <tr>
-            <td class="center">
-            </td>
-            <td><?= $row['ID_RUNNER'] ?></td>
-            <td><?= $row['FIRSTNAME'] ?></td>
-            <td><?= $row['LASTNAME'] ?></td>
-<!--            <td>--><?//= $row['AVG_PHASE'] ?><!--</td>-->
-        </tr>
-
-    <?php } ?>
-
-</table>
-
-
 <div class="container">
+    <!--	--><?php //include 'navbar.php' ?>
+    <h1>Seznam bežců</h1>
+    Aktuální počet běžců v týmu: <?= $count ?>
+    <div class="table">
+        <table class="table table-hover">
+            <tr>
+                <th>Identifikační číslo</th>
+                <th>Jméno</th>
+                <th>Příjmení</th>
+                <!--        <th>Čas na kilometr</th>-->
+            </tr>
+
+            <?php foreach ($clients as $row) { ?>
+
+                <tr>
+                    <td><?= $row['ID_RUNNER'] ?></td>
+                    <td><?= $row['FIRSTNAME'] ?></td>
+                    <td><?= $row['LASTNAME'] ?></td>
+                    <!--            <td>--><? //= $row['AVG_PHASE'] ?><!--</td>-->
+                </tr>
+
+            <?php } ?>
+
+        </table>
+    </div>
+
     <h3><a href='index.php'>Menu</a></h3>
+
+    <?php include 'footer.php' ?>
 </div>
-<?php include 'footer.php' ?>
 </body>
 
 </html>

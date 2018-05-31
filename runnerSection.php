@@ -33,7 +33,7 @@ $stmt_b = $db->prepare("SELECT id_cs FROM current_state");
 $stmt_b->execute();
 $current_status = $stmt_b->fetchAll()[0];
 
-if ($current_status["id_cs"] != 1){
+if ($current_status["id_cs"] != 1) {
     header("Location: runnerSection_multiple.php");
     exit();
 }
@@ -58,94 +58,94 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="utf-8"/>
-    <title>Kapitánova sekce | RiverRun</title>
+    <title>Kapitánova sekce | River Run</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <?php include 'navbar.php' ?>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-
 </head>
 
 <body>
-
-<!--	--><?php //include 'navbar.php' ?>
-
-<h1>Rozpis přidělených úseků</h1>
-Celkový počet úseků: <?= $count ?>
-<br/>
-<h2>Přiřaď úseky</h2>
-<form action="" method="POST">
-    Vyberte sekci
-    <select name='section_picker_section' class='selectpicker'>
-        <?php foreach ($team_section as $ts) {
-            $ts_b = $ts[0];
-            $ts_c = $ts[1];
-            $ts_d = $ts[2];
-            ?>
-            <option value="<?= $ts_b ?>"><?= "ID: ", $ts_b, " ", $ts_c, " -> ", $ts_d ?>
-            </option>
-        <?php } ?>
-    </select>
-    Vyberte běžce
-    <select name='section_picker_runner' class='selectpicker'>
-        <?php foreach ($team_runners_id_names as $tr) {
-            $tr_b = $tr[0];
-            $tr_c = $tr[1];
-            $tr_d = $tr[2];
-            ?>
-            <option value="<?= $tr_b ?>"><?= "ID: ", $tr_b, " ", $tr_c, " ", $tr_d ?>
-            </option>
-        <?php } ?>
-    </select>
-    <input type="submit" value="Přiřaď" class="login loginmodal-submit">
-</form>
-
-<h2>Přidělené úsely</h2>
-<table>
-    <tr>
-        <th>ID sekce</th>
-        <th>Start</th>
-        <th>Finish</th>
-        <th>ID běžce</th>
-        <th>Jméno</th>
-        <th>Příjmení</th>
-        <th>Zrušit</th>
-
-    </tr>
-    <?php foreach ($clients as $row) { ?>
-        <tr>
-            <td><?= $row['id_section'] ?></td>
-            <td><?= $row['start'] ?></td>
-            <td><?= $row['finish'] ?></td>
-            <td><?= $row['id_runner'] ?></td>
-            <td><?= $row['firstname'] ?></td>
-            <td><?= $row['lastname'] ?></td>
-            <!--            <td><a href='delete.php?id_rs=--><? //= $row['id_rs'] ?><!--'>Delete</a></td>-->
-            <td><a href='update.php?id_rs=<?= $row['id_rs'] ?>'>
-                    <button type="button">SMAZAT</button>
-                </a></td>
-
-        </tr>
-    <?php } ?>
-</table>
-<br/>
-<table>
-    <h2>Doposud nepřidělené úseky</h2>
-    <tr>
-        <th>ID sekce</th>
-        <th>Start</th>
-        <th>Finish</th>
-    </tr>
-    <?php foreach ($team_section as $row) { ?>
-        <tr>
-            <td><?= $row['id_section'] ?></td>
-            <td><?= $row['start'] ?></td>
-            <td><?= $row['finish'] ?></td>
-        </tr>
-    <?php } ?>
-</table>
 <div class="container">
+
+    <h1>Rozpis přidělených úseků</h1>
+    Celkový počet úseků: <?= $count ?>
+    <br/>
+    <h2>Přiřaď úseky</h2>
+    <form action="" method="POST">
+        Vyberte sekci
+        <select name='section_picker_section' class='selectpicker'>
+            <?php foreach ($team_section as $ts) {
+                $ts_b = $ts[0];
+                $ts_c = $ts[1];
+                $ts_d = $ts[2];
+                ?>
+                <option value="<?= $ts_b ?>"><?= "ID: ", $ts_b, " ", $ts_c, " -> ", $ts_d ?>
+                </option>
+            <?php } ?>
+        </select>
+        Vyberte běžce
+        <select name='section_picker_runner' class='selectpicker'>
+            <?php foreach ($team_runners_id_names as $tr) {
+                $tr_b = $tr[0];
+                $tr_c = $tr[1];
+                $tr_d = $tr[2];
+                ?>
+                <option value="<?= $tr_b ?>"><?= "ID: ", $tr_b, " ", $tr_c, " ", $tr_d ?>
+                </option>
+            <?php } ?>
+        </select>
+        <input type="submit" value="Přiřaď" class="login loginmodal-submit">
+    </form>
+
+    <h2>Přidělené úsely</h2>
+    <div class="table">
+        <table class="table table-hover">
+            <tr>
+                <th>ID sekce</th>
+                <th>Start</th>
+                <th>Finish</th>
+                <th>ID běžce</th>
+                <th>Jméno</th>
+                <th>Příjmení</th>
+                <th>Zrušit</th>
+
+            </tr>
+            <?php foreach ($clients as $row) { ?>
+                <tr>
+                    <td><?= $row['id_section'] ?></td>
+                    <td><?= $row['start'] ?></td>
+                    <td><?= $row['finish'] ?></td>
+                    <td><?= $row['id_runner'] ?></td>
+                    <td><?= $row['firstname'] ?></td>
+                    <td><?= $row['lastname'] ?></td>
+                    <!--            <td><a href='delete.php?id_rs=--><? //= $row['id_rs'] ?><!--'>Delete</a></td>-->
+                    <td><a href='update.php?id_rs=<?= $row['id_rs'] ?>'>
+                            <button type="button">SMAZAT</button>
+                        </a></td>
+
+                </tr>
+            <?php } ?>
+        </table>
+        <br/>
+            <table class="table table-hover">
+            <h2>Doposud nepřidělené úseky</h2>
+            <tr>
+                <th>ID sekce</th>
+                <th>Start</th>
+                <th>Finish</th>
+            </tr>
+            <?php foreach ($team_section as $row) { ?>
+                <tr>
+                    <td><?= $row['id_section'] ?></td>
+                    <td><?= $row['start'] ?></td>
+                    <td><?= $row['finish'] ?></td>
+                </tr>
+            <?php } ?>
+        </table>
+    </div>
     <h3><a href='index.php'>Menu</a></h3>
+
+    <?php include 'footer.php' ?>
 </div>
-<?php include 'footer.php' ?>
 </body>
 
 </html>

@@ -17,14 +17,13 @@ $stmt->execute();
 $clients = $stmt->fetchAll();
 
 
-
 ?>
 <!DOCTYPE html>
 
 <html>
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>Kapitánova sekce | RiverRun</title>
     <?php include 'navbar.php' ?>
     <link rel="stylesheet" type="text/css" href="styles.css">
@@ -34,60 +33,41 @@ $clients = $stmt->fetchAll();
 <body>
 
 <!--	--><?php //include 'navbar.php' ?>
-
-<h1>Seznam bežců</h1>
-
-Aktuální počet běžců v týmu: <?= $count ?>
-
-<br/><br/>
-
-<!--	<a href="new.php">New Good</a>-->
-
-<br/><br/>
-
-<table>
-
-    <tr>
-
-        <th></th>
-        <th>Identifikační číslo</th>
-        <th>Jméno</th>
-        <th>Příjmení</th>
-<!--        <th>Čas na kilometr</th>-->
-        <th>Tým</th>
-        <th></th>
-
-
-    </tr>
-
-    <?php foreach($clients as $row) { ?>
-
-        <tr>
-            <td class="center">
-                <!--					<a href='buy.php?id=--><?//= $row['id'] ?><!--'>Buy</a>-->
-            </td>
-
-            <td><?= $row['id_runner'] ?></td>
-            <td class="right"><?= $row['firstname'] ?></td>
-            <td><?= $row['lastname'] ?></td>
-<!--            <td>--><?//= $row['avg_phase'] ?><!--</td>-->
-            <td><?= $row['name'] ?></td>
-
-            <td class="center" nowrap>
-                <!--					<a href='update_optimistic.php?id=--><?//= $row['id'] ?><!--'>Edit (optimistic lock)</a><br>-->
-                <!--					<a href='update_pessimistic.php?id=--><?//= $row['id'] ?><!--'>Edit (pessimistic lock)</a><br>-->
-                <!--					<a href='delete.php?id=--><?//= $row['id'] ?><!--'>Delete</a>-->
-            </td>
-
-        </tr>
-
-    <?php } ?>
-
-</table>
 <div class="container">
+    <h1>Seznam bežců</h1>
+
+    Aktuální počet běžců v týmu: <?= $count ?>
+
+    <br/><br/>
+
+    <!--	<a href="new.php">New Good</a>-->
+
+    <br/><br/>
+
+    <div class="table">
+        <table class="table table-hover">
+            <tr>
+                <th>Identifikační číslo</th>
+                <th>Jméno</th>
+                <th>Příjmení</th>
+                <th>Tým</th>
+            </tr>
+            <?php foreach ($clients as $row) { ?>
+                <tr>
+                    <td><?= $row['id_runner'] ?></td>
+                    <td><?= $row['firstname'] ?></td>
+                    <td><?= $row['lastname'] ?></td>
+                    <td><?= $row['name'] ?></td>
+                </tr>
+
+            <?php } ?>
+
+        </table>
+    </div>
     <h3><a href='index.php'>Menu</a></h3>
+
+    <?php include 'footer.php' ?>
 </div>
-<?php include 'footer.php' ?>
 </body>
 
 </html>

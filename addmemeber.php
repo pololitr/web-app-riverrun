@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-
+<div class="container">
 <h1>Přidej nového běžce</h1>
 
 <form action="" method="POST">
@@ -96,11 +96,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </form>
 
-<div class="container">
     <h3><a href='index.php'>Menu</a></h3>
     <h3><a href='myteam.php'>Tým</a></h3>
-</div>
+
 <?php include 'footer.php' ?>
+    </div>
 </body>
 
 </html>
