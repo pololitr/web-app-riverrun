@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //$avg_phase = $_POST['avg_phase'];
 
 
-    $username = htmlspecialchars(trim($_POST['email']));
+    $email = htmlspecialchars(trim($_POST['email']));
     $password = htmlspecialchars(trim($_POST['password']));
     $password_check = htmlspecialchars(trim($_POST['password_check']));
     $firstname = htmlspecialchars(trim($_POST['firstname']));
