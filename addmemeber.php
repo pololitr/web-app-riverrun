@@ -66,10 +66,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 //    $avg_phase = $_POST['avg_phase'];
 
-    # TODO PRO STUDENTY osetrit vstupy, email a heslo jsou povinne, atd.
-    # TODO PRO STUDENTY jde se prihlasit prazdnym heslem, jen prototyp, pouzit filtry
-
-
     #vlozime usera do databaze
     $stmt = $db->prepare("INSERT INTO runner(email, password, firstname, lastname,captain, team ) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->execute(array(NULL, NULL,$firstname, $lastname,0, $current_team_id));
@@ -92,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="utf-8" />
-    <title>Nový běžec</title>
+    <title>RiverRun 2018 | Kapitánská sekce</title>
     	<link rel="stylesheet" type="text/css" href="style.css">
     <?php include 'navbar.php' ?>
 </head>

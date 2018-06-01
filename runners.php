@@ -33,7 +33,7 @@ $clients = $stmt->fetchAll();
 
 <head>
     <meta charset="utf-8"/>
-    <title>Kapitánova sekce | RiverRun</title>
+    <title>RiverRun 2018 | Kapitánská sekce</title>
     <?php include 'navbar.php' ?>
     <link rel="stylesheet" type="text/css" href="styles.css">
 

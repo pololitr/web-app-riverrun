@@ -26,7 +26,7 @@ $current_status = $stmt_b->fetchAll()[0];
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>Kapitánva sekce | River Run</title>
+    <title>RiverRun 2018 | Kapitánská sekce</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <?php include 'navbar.php' ?>
 </head>

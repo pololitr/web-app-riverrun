@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="utf-8"/>
-    <title>PHP Shopping App</title>
+    <title>RiverRun 2018 | Registrace</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -100,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 <div class="container log text-center">
-<h1>River Run 2018 Kapitánská sekce</h1>
+<h1>River Run 2018 kapitánská sekce</h1>
 <h2>Nový kapitánský účet</h2>
 <form action="" method="POST">
     <div class="imgcontainer">

@@ -30,7 +30,7 @@ $teams_ids = $stmt_b->fetchAll();
 
 <head>
     <meta charset="utf-8"/>
-    <title>Kapitánova sekce | RiverRun</title>
+    <title>RiverRun 2018 | Kapitánská sekce</title>
 
     <link rel="stylesheet" type="text/css" href="styles.css">
     <?php include 'navbar.php' ?>

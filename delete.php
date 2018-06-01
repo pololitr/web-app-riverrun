@@ -26,8 +26,8 @@ header('Location: myteam.php');
 
 <head>
 	<meta charset="utf-8" />
-	<title>PHP Shopping App</title>
-	<link rel="stylesheet" type="text/css" href="styles.css">
+    <title>RiverRun 2018 | Kapitánská sekce</title>
+<!--	<link rel="stylesheet" type="text/css" href="style.css">-->
 </head>
 
 <body>

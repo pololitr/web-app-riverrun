@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="utf-8"/>
-    <title>Kapitánova sekce | River Run</title>
+    <title>RiverRun 2018 | Kapitánská sekce</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <?php include 'navbar.php' ?>
 </head>

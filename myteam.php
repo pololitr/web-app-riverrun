@@ -46,7 +46,7 @@ if ($current_status["id_cs"] != 1) {
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>Kapitánova sekce | VltavaRun</title>
+    <title>RiverRun 2018 | Kapitánská sekce</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <?php include 'navbar.php' ?>
 </head>

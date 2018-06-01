@@ -26,7 +26,7 @@ $clients = $stmt->fetchAll();
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>Kapitánova sekce | VltavaRun</title>
+    <title>RiverRun 2018 | Kapitánská sekce</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <?php include 'navbar.php' ?>
 </head>

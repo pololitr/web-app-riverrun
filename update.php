@@ -17,7 +17,7 @@ header('Location: runnerSection.php');
 
 <head>
 	<meta charset="utf-8" />
-	<title>PHP Shopping App</title>
+    <title>RiverRun 2018 | Kapitánská sekce</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
