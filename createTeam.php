@@ -88,30 +88,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <h1>Vytvoření nového týmu</h1>
 
-    <h2>Zadej název nového týmu a jeho počet vozidel a bežců</h2>
+    <h3>Zadej název nového týmu a jeho počet vozidel a bežců</h3>
 
     <form action="" method="POST" class="log">
 
         <input type="text" placeholder="Název týmu" name="name" value="" style="text-align: left;" required><br/><br/>
 
         Počet vozidel<br/>
-        <select name="car_count">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-        </select><br/><br/>
+        <label for="pocet_vozidel">
+            <select name="car_count">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </label><br/><br/>
 
         Počet běžců<br/>
-        <select name="runners_count">
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-        </select><br/><br/>
+        <label for="pocet_bezcu">
+            <select name="runners_count">
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+        </label><br/><br/>
 
         <!--    <input type="submit" value="Vytvoř tým">-->
         <button type="submit" style="width: 30%">Vytvoř tým</button>
