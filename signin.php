@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 
     <br/>
-    <div class="container log text-center">
+    <div class="container log text-center" >
         <a href="signup.php">Vytvořit účet</a><br/>
         <a href="admin_required.php">Manage</a>
     </div>

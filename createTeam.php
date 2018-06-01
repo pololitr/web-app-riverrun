@@ -75,38 +75,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <div class="container">
 
-<h1>Vytvoření nového týmu</h1>
+    <h1>Vytvoření nového týmu</h1>
 
-<h2>Zadej název nového týmu a jeho počet vozidel a bežců</h2>
+    <h2>Zadej název nového týmu a jeho počet vozidel a bežců</h2>
 
-<form action="" method="POST">
+    <form action="" method="POST" class="log">
 
-    Název týmu<br/>
-    <input type="text" name="name" value=""><br/><br/>
+        <input type="text" placeholder="Název týmu" name="name" value="" style="text-align: left;"><br/><br/>
 
-    Počet vozidel<br/>
-    <select name="car_count">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-    </select><br/><br/>
+        Počet vozidel<br/>
+        <select name="car_count">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select><br/><br/>
 
-    Počet běžců<br/>
-    <select name="runners_count">
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-    </select><br/><br/>
+        Počet běžců<br/>
+        <select name="runners_count">
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select><br/><br/>
 
-    <input type="submit" value="Vytvoř tým"> or <a href="index.php">Zrušit</a>
+        <!--    <input type="submit" value="Vytvoř tým">-->
+        <button type="submit" style="width: 30%">Vytvoř tým</button>
+        <a href='index.php'>
+            <button type="button" style="background-color: #f44336; width: 30%" onclick="return confirm('Oprvadu odejít?')">
+                Zrušit
+            </button>
+        </a>
 
-</form>
-    <h3><a href='index.php'>Menu</a></h3>
+    </form>
+    <!--    <h3><a href='index.php'>Menu</a></h3>-->
 </div>
 <?php include 'footer.php' ?>
 </body>

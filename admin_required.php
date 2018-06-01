@@ -46,27 +46,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="utf-8"/>
     <title>Vltava Run</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
-<p>Současný status závodu je <?= "<h1>",$current_status["state"],"</h1><br>",$current_status["description"]?></p>
-</br>
-Vyberte status závodu
-<form action="" method="POST">
-    <select name='state_picker' class='selectpicker'>
-        <?php foreach ($status as $tr) {
-            var_dump($tr);
-            $tr_b = $tr[0];
-            $tr_c = $tr[1];
-            $tr_d = $tr[2];
-            ?>
-            <option value="<?= $tr_b ?>"><?= "ID: ", $tr_b, " ~ ", $tr_c, " -> ", $tr_d ?>
-            </option>
-        <?php } ?>
-    </select>
-    <input type="submit" value="Přiřaď" class="login loginmodal-submit">
-</form>
-<h3><a href='signout.php'>Odhlásit</a></h3>
+    <div class="log text-center">
+        <p>Současný status závodu
+            je <?= "<h1>", $current_status["state"], "</h1><br>", $current_status["description"] ?></p>
+        </br>
+        Vyberte status závodu
+        <form action="" method="POST">
+            <select name='state_picker' class='selectpicker'>
+                <?php foreach ($status as $tr) {
+                    var_dump($tr);
+                    $tr_b = $tr[0];
+                    $tr_c = $tr[1];
+                    $tr_d = $tr[2];
+                    ?>
+                    <option value="<?= $tr_b ?>"><?= "ID: ", $tr_b, " ~ ", $tr_c, " -> ", $tr_d ?>
+                    </option>
+                <?php } ?>
+            </select>
+            <input type="submit" value="Nastavit" class="login loginmodal-submit">
+        </form>
+        <h3><a href='signout.php'>Opustit administrační stránku</a></h3>
     </div>
 </body>
 </html>

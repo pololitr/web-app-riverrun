@@ -43,9 +43,9 @@ $current_status = $stmt_b->fetchAll()[0];
     <h3><a href='teams.php'>Všechny týmy</a></h3>
     <h3><a href='runners.php'>Všichni běžci</a></h3>
     <h3><a href='sections.php'>Úseky</a></h3>
-    <h3><a href='runnerSection.php'>Správa úseků týmu</a></h3>
+    <h3><a href='runnerSection.php'>Tým - Úseky</a></h3>
     <br>
-    <h3><a href='signout.php'>Odhlásit</a></h3>
+    <h3><a href='signout.php' onclick="return confirm('Oprvadu odhlásit?');">Odhlásit</a></h3>
 </div>
 
 <?php include 'footer.php' ?>

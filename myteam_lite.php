@@ -38,7 +38,7 @@ $clients = $stmt->fetchAll();
     <div class="table">
         <table class="table table-hover">
             <tr>
-                <th>Identifikační číslo</th>
+                <th>Číslo běžce</th>
                 <th>Jméno</th>
                 <th>Příjmení</th>
                 <!--        <th>Čas na kilometr</th>-->

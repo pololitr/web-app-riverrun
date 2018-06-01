@@ -5,14 +5,14 @@
  * Date: 30.05.2018
  * Time: 16:22
  */
-require 'db.php';
-require 'user_required.php';
+//require 'db.php';
+//require 'user_required.php';
 //require 'myteam.php';
 
 $current_user_id = $current_user["id_runner"];
 $current_team_id = $current_user["team"];
 
-if ($current_team_id == NULL){
+if ($current_team_id == NULL) {
     header("Location: createTeam.php");
     exit();
 }
@@ -26,7 +26,7 @@ $clients = $stmt->fetchAll();
 $clients_b = $clients[0];
 $count_set = $clients_b['runners_count'];
 
-if($count >= $count_set){
+if ($count >= $count_set) {
     header("Location: myteam.php");
     exit();
 }
@@ -35,7 +35,7 @@ $stmt_b = $db->prepare("SELECT id_cs FROM current_state");
 $stmt_b->execute();
 $current_status = $stmt_b->fetchAll()[0];
 
-if ($current_status["id_cs"] != 1){
+if ($current_status["id_cs"] != 1) {
     header("Location: myteam_lite.php");
     exit();
 }
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     #vlozime usera do databaze
     $stmt = $db->prepare("INSERT INTO runner(email, password, firstname, lastname,captain, team ) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->execute(array(NULL, NULL,$firstname, $lastname,0, $current_team_id));
+    $stmt->execute(array(NULL, NULL, $firstname, $lastname, 0, $current_team_id));
 
     #ted je uzivatel ulozen, bud muzeme vzit id posledniho zaznamu pres last insert id (co kdyz se to potka s vice requesty = nebezpecne), nebo nacist uzivatele podle mailove adresy (ok, bezpecne)
 
@@ -59,10 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     header("Location: myteam.php");
     exit();
-
-
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -70,37 +67,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>Nový běžec</title>
-    	<link rel="stylesheet" type="text/css" href="style.css">
-    <?php include 'navbar.php' ?>
+    <!--    <link rel="stylesheet" type="text/css" href="style.css">-->
 </head>
-
 <body>
-<div class="container">
-<h1>Přidej nového běžce</h1>
-
-<form action="" method="POST">
-
-    Jmnéno<br/>
-    <input type="text" name="firstname" value="" required><br/><br/>
-
-    Příjmení<br/>
-    <input type="text" name="lastname" value="" required><br/><br/>
-
-<!--    Minut na kilometr<br/>-->
-<!--    <input type="text" name="avg_phase" value=""><br/><br/>-->
-
-
-    <input type="submit" value="vytvoř běžce"> or <a href="/index.php">Cancel</a>
-
-</form>
-
-    <h3><a href='index.php'>Menu</a></h3>
-    <h3><a href='myteam.php'>Tým</a></h3>
-
-<?php include 'footer.php' ?>
+<div class="modal-content animate ">
+    <div class="container_2">
+        <h1>Přidej nového běžce</h1>
+        <form action="" method="POST" style="padding: 10px 10px 10px 10px;">
+            <input type="text" placeholder="Jméno nového člena" name="firstname" value="" required><br/>
+            <input type="text" placeholder="Příjmení nového člena" name="lastname" value="" required><br/>
+            <button type="submit" id=>Vytvoř běžce</button>
+            <br/>
+            <button type="button" class="mod01" style=" background-color: #f44336;" onclick="document.getElementById('id01').style.display='none'">Zrušit</button>
+            <br/>
+        </form>
     </div>
+</div>
 </body>
-
 </html>

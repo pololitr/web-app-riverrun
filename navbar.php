@@ -12,7 +12,7 @@ $stmt->execute();
 $state = $stmt->fetchAll()[0];
 
 $current_state_name = $state["state"];
-//$current_state_desc = $state["description"];
+$current_state_desc = $state["description"];
 ?>
 <head>
     <title>Bootstrap Example</title>
@@ -31,8 +31,12 @@ $current_state_name = $state["state"];
         <ul class="nav navbar-nav">
             <li><a href="index.php">Domů</a></li>
             <li><a href="myteam.php">Můj tým</a></li>
-            <li><a href="runnerSection.php">Úseky</a></li>
-            <li id="current-status"><a href="">Současný stav je: <?=$current_state_name?></a></li>
+            <li><a href="runnerSection.php">Tým - Úseky</a></li>
+            <li >
+                <a style="font-weight: bold;" href="" onclick="return confirm(' Současný stav je:\n <?=$current_state_name?> \n\n To znamená:\n <?=$current_state_desc?>' );">
+                    Současný stav je: <?=$current_state_name?>
+                </a>
+            </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Přihlášen jako <?= $current_user['firstname']," ", $current_user['lastname'] ?> <span class="caret"></span></a>

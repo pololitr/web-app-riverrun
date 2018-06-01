@@ -36,7 +36,7 @@ $clients = $stmt->fetchAll();
 <div class="container">
     <h1>Seznam bežců</h1>
 
-    Aktuální počet běžců v týmu: <?= $count ?>
+    Aktuální počet všech běžců: <?= $count ?>
 
     <br/><br/>
 
@@ -47,7 +47,7 @@ $clients = $stmt->fetchAll();
     <div class="table">
         <table class="table table-hover">
             <tr>
-                <th>Identifikační číslo</th>
+                <th>Číslo bežce</th>
                 <th>Jméno</th>
                 <th>Příjmení</th>
                 <th>Tým</th>
@@ -64,7 +64,7 @@ $clients = $stmt->fetchAll();
 
         </table>
     </div>
-    <h3><a href='index.php'>Menu</a></h3>
+<!--    <h3><a href='index.php'>Menu</a></h3>-->
 
     <?php include 'footer.php' ?>
 </div>

@@ -33,16 +33,16 @@ $clients = $stmt->fetchAll();
 
 <body>
 <div class="container">
-    <h1>Seznam tymu</h1>
-    celkovy pocet tymu: <?= $count ?>
+    <h1>Seznam týmů</h1>
+    Celkovy počet týmů: <?= $count ?>
     <br/><br/>
     <br/><br/>
     <div class="table">
             <table class="table table-hover">
             <tr>
-                <th>Identifikační číslo týmu</th>
-                <th>Nazev týmu</th>
-                <th>ID kapitána</th>
+                <th>Číslo týmu</th>
+                <th>Název týmu</th>
+                <th>Číslo kapitána</th>
                 <th>Počet vozidel</th>
                 <th>Počet běžců</th>
             </tr>
@@ -59,7 +59,7 @@ $clients = $stmt->fetchAll();
         </table>
     </div>
 
-    <h3><a href='index.php'>Menu</a></h3>
+<!--    <h3><a href='index.php'>Menu</a></h3>-->
 
     <?php include 'footer.php' ?>
 </div>

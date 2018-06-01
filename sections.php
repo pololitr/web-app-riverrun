@@ -29,15 +29,15 @@ $clients = $stmt->fetchAll();
 </head>
 <body>
 <div class="container">
-    <h1>Seznam useku</h1>
-    celkovy pocet useku: <?= $count ?>
+    <h1>Seznam všech úseků</h1>
+    Celkovy počet všech úseků: <?= $count ?>
     <br/><br/>
     <br/><br/>
     <div class="table">
         <table class="table table-hover">
             <tr>
                 <th></th>
-                <th>Identifikační číslo useku</th>
+                <th>Číslo useku</th>
                 <th>Start</th>
                 <th>Cíl</th>
                 <th>Délka(km)</th>
@@ -57,7 +57,7 @@ $clients = $stmt->fetchAll();
             <?php } ?>
         </table>
     </div>
-    <h3><a href='index.php'>Menu</a></h3>
+<!--    <h3><a href='index.php'>Menu</a></h3>-->
     <br/>
     <br/>
     <?php include 'footer.php' ?>

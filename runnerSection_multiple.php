@@ -59,14 +59,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="utf-8"/>
     <title>Kapitánova sekce | RiverRun</title>
     <?php include 'navbar.php' ?>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
 <body>
 <div class="container">
-    <!--	--><?php //include 'navbar.php' ?>
-
     <h1>Rozpis přidělených úseků</h1>
 
     <?php if ($current_status["id_cs"] == 3) { ?>
