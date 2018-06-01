@@ -78,7 +78,7 @@ Celkový počet týmů: <?= $count ?>
         <?php }
     } ?>
 </table>
-    <h3><a href='index.php'>Menu</a></h3>
+<!--    <h3><a href='index.php'>Menu</a></h3>-->
 </div>
 <?php include 'footer.php' ?>
 </body>

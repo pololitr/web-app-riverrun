@@ -69,16 +69,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <?php if ($current_status["id_cs"] == 3) { ?>
         <form action="" method="POST">
-            <h2>Vyberte sekci</h2>
+            <h2>Zadejte čas uběhnutí sekce</h2>
+            Vyberte úsek<br>
             <select name='section_picker_time' class='selectpicker'>
                 <?php foreach ($clients as $ts) { ?>
                     <option value="<?= $ts['id_section'] ?>"><?= "ID: ", $ts['id_section'], " ", $ts['start'], " -> ", $ts['finish'] ?>
                     </option>
                 <?php } ?>
-            </select><br>
+            </select><br><br>
             Zadej čas (HH:MM)<br>
-            <input type="time" name="time" value=""><br>
-            <input type="submit" value="Zadej čas" class="login loginmodal-submit">
+            <input type="time" name="time" value=""><br><br>
+<!--            <button type="submit">Zadej čas</button>-->
+            <button type="submit" style="width: 20%">Zadej čas</button>
+<!--            <input type="submit" value="Zadej čas" class="login loginmodal-submit">-->
         </form>
     <?php } ?>
 
@@ -112,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <br/><br/>
 
 
-    <h3><a href='index.php'>Menu</a></h3>
+<!--    <h3><a href='index.php'>Menu</a></h3>-->
 
     <?php include 'footer.php' ?>
 </div>

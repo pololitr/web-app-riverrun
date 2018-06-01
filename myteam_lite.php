@@ -58,7 +58,7 @@ $clients = $stmt->fetchAll();
         </table>
     </div>
 
-    <h3><a href='index.php'>Menu</a></h3>
+<!--    <h3><a href='index.php'>Menu</a></h3>-->
 
     <?php include 'footer.php' ?>
 </div>
