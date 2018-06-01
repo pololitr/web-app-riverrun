@@ -40,10 +40,11 @@ $current_status = $stmt_b->fetchAll()[0];
         <h3><a href='results.php'>Výsledky</a></h3>
     <?php } ?>
     <h3><a href='myteam.php'>Můj tým</a></h3>
+    <h3><a href='runnerSection.php'>Tým - Úseky</a></h3>
     <h3><a href='teams.php'>Všechny týmy</a></h3>
     <h3><a href='runners.php'>Všichni běžci</a></h3>
-    <h3><a href='sections.php'>Úseky</a></h3>
-    <h3><a href='runnerSection.php'>Tým - Úseky</a></h3>
+    <h3><a href='sections.php'>Všechny úseky</a></h3>
+    <h3><a href='runners_sections_time.php'>Výsledky běžců dle týmů</a></h3>
     <br>
     <h3><a href='signout.php' onclick="return confirm('Oprvadu odhlásit?');">Odhlásit</a></h3>
 </div>

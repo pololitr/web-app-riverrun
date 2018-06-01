@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <h2>Přihlaste se</h2>
 
-    <form action="" method="POST">
+    <form  method="POST">
         <div class="imgcontainer">
             <img src="img/avatars.png" alt="Avatar" class="avatar">
         </div>

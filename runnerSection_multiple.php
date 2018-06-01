@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php } ?>
 
     <br/>
-    <h2>Přidělené úsely</h2>
+    <h2>Přidělené úseky</h2>
     <div class="table">
         <table class="table table-hover">
             <tr>
