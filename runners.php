@@ -9,10 +9,19 @@ require 'db.php';
 require 'user_required.php';
 $current_user_id = $current_user["id_runner"];
 
+if (isset($_GET['offset'])) {
+    $offset = (int)$_GET['offset'];
+} else {
+    $offset = 0;
+}
+//$stmt = $db->prepare("SELECT * FROM goods ORDER BY id DESC LIMIT 10 OFFSET ?");
+
+
 
 $count = $db->query("SELECT COUNT(ID_RUNNER) FROM runner join team on runner.team=team.id_team")->fetchColumn();
 
-$stmt = $db->prepare("SELECT * FROM runner join team on runner.team=team.id_team ORDER BY ID_RUNNER");
+$stmt = $db->prepare("SELECT * FROM runner join team on runner.team=team.id_team ORDER BY ID_RUNNER DESC LIMIT 10 OFFSET ?");
+$stmt->bindValue(1, $offset, PDO::PARAM_INT);
 $stmt->execute();
 $clients = $stmt->fetchAll();
 
@@ -63,6 +72,13 @@ $clients = $stmt->fetchAll();
             <?php } ?>
 
         </table>
+    </div>
+    <div class="pagination">
+        <?php for($i=1; $i<=ceil($count/10); $i++) { ?>
+
+            <a class="<?= $offset/10+1==$i ? "active" : ""  ?>" href="runners.php?offset=<?= ($i-1)*10 ?>"><?= $i ?></a>
+
+        <?php } ?>
     </div>
 <!--    <h3><a href='index.php'>Menu</a></h3>-->
 

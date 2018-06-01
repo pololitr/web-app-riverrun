@@ -10,10 +10,16 @@ require 'db.php';
 require 'user_required.php';
 $current_user_id = $current_user["id_runner"];
 
+if (isset($_GET['offset'])) {
+    $offset = (int)$_GET['offset'];
+} else {
+    $offset = 0;
+}
+
 $count = $db->query("SELECT COUNT(ID_SECTION) FROM section")->fetchColumn();
 
-$stmt = $db->prepare("SELECT * FROM section  ORDER BY ID_SECTION");// LIMIT 12 OFFSET ?");
-//$stmt->bindValue(1, $offset, PDO::PARAM_INT);
+$stmt = $db->prepare("SELECT * FROM section  ORDER BY ID_SECTION ASC LIMIT 10 OFFSET ?");// LIMIT 12 OFFSET ?");
+$stmt->bindValue(1, $offset, PDO::PARAM_INT);
 $stmt->execute();
 $clients = $stmt->fetchAll();
 
@@ -56,6 +62,13 @@ $clients = $stmt->fetchAll();
                 </tr>
             <?php } ?>
         </table>
+        <div class="pagination">
+            <?php for($i=1; $i<=ceil($count/10); $i++) { ?>
+
+                <a class="<?= $offset/10+1==$i ? "active" : ""  ?>" href="sections.php?offset=<?= ($i-1)*10 ?>"><?= $i ?></a>
+
+            <?php } ?>
+        </div>
     </div>
 <!--    <h3><a href='index.php'>Menu</a></h3>-->
     <br/>
