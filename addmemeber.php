@@ -43,6 +43,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $firstname = htmlspecialchars(trim($_POST['firstname']));
     $lastname = htmlspecialchars(trim($_POST['lastname']));
+
+    if (isset($_POST['firstname'])) {
+        if (!ctype_alnum($_POST['firstname'])) {
+            $errors[] = 'Jméno může obsahovat jen písmena a číslice.';
+        }
+        if (strlen($_POST['firstname']) > 30) {
+            $errors[] = 'Jméno nemůže být delší než 30 znaků.';
+        }
+    } else {
+        $errors[] = 'Jméno nesmí být prázdné.';
+    }
+    if (isset($_POST['lastname'])) {
+        if (!ctype_alnum($_POST['lastname'])) {
+            $errors[] = 'Příjmení může obsahovat jen písmena a číslice.';
+        }
+        if (strlen($_POST['lastname']) > 30) {
+            $errors[] = 'Příjmení nemůže být delší než 30 znaků.';
+        }
+    } else {
+        $errors[] = 'Příjmení nesmí být prázdné.';
+    }
 //    $avg_phase = $_POST['avg_phase'];
 
     # TODO PRO STUDENTY osetrit vstupy, email a heslo jsou povinne, atd.

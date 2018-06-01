@@ -19,12 +19,23 @@ if ($current_user_team != NULL) {
     require 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    //TODO name musi byt uniqe
-    //TODO cpitan boolean
-    $team_name = $_POST['name'];
+
+    $team_name = htmlspecialchars(trim($_POST['name']));
+    $c_team_members = htmlspecialchars(trim($_POST['runners_count']));
+    $c_team_cars = htmlspecialchars(trim($_POST['car_count']));
+
     $captain_id = $current_user['id_runner'];
-    $c_team_members = $_POST['runners_count'];
-    $c_team_cars = $_POST['car_count'];
+
+    if (isset($_POST['name'])) {
+        if (!ctype_alnum($_POST['name'])) {
+            $errors[] = 'Název může obsahovat jen písmena a číslice.';
+        }
+        if (strlen($_POST['name']) > 20) {
+            $errors[] = 'Název nemůže být delší než 20 znaků.';
+        }
+    } else {
+        $errors[] = 'Název nesmí být prázdný.';
+    }
 
     //vytvor team
     $stmt = $db->prepare("INSERT INTO team(NAME,captain_id, car_count, runners_count) VALUES (?, ?, ?, ?)");
@@ -81,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <form action="" method="POST" class="log">
 
-        <input type="text" placeholder="Název týmu" name="name" value="" style="text-align: left;"><br/><br/>
+        <input type="text" placeholder="Název týmu" name="name" value="" style="text-align: left;" required><br/><br/>
 
         Počet vozidel<br/>
         <select name="car_count">

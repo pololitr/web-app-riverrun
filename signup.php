@@ -25,10 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors = array();
     if (isset($_POST['email'])) {
         if (!ctype_alnum($_POST['email'])) {
-            $errors[] = 'Přezdivka může obsahovat jen písmena a číslice.';
+            $errors[] = 'Email může obsahovat jen písmena a číslice.';
         }
         if (strlen($_POST['email']) > 30) {
-            $errors[] = 'Přezdivka nemůže být delší než 30 znaků.';
+            $errors[] = 'Email nemůže být delší než 30 znaků.';
         }
     } else {
         $errors[] = 'Email nesmí být prázdný.';
@@ -44,14 +44,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $errors[] = 'Heslo nesmí být prázdné';
         }
     }
-    if (isset($_POST['firstname']) && isset($_POST['firstname'])) {
+    if (isset($_POST['firstname']) && isset($_POST['lastname'])) {
         if (empty($_POST['firstname']) or empty($_POST['lastname'])) {
             $errors[] = 'Jméno a příjemní nesmí být prázdené';
         }
     }
-
-    # TODO PRO STUDENTY osetrit vstupy, email a heslo jsou povinne, atd.
-    # TODO PRO STUDENTY jde se prihlasit prazdnym heslem, jen prototyp, pouzit filtry
 
     # $password = md5($_POST['password']); #chybi salt
 

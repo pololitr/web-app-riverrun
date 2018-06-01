@@ -41,7 +41,7 @@ $teams_ids = $stmt_b->fetchAll();
 <div class="container">
 <!--	--><?php //include 'navbar.php' ?>
 
-<h1>Průběžné výsledky týmů</h1>
+<h1>Výsledky týmů</h1>
 
 Celkový počet týmů: <?= $count ?>
 
